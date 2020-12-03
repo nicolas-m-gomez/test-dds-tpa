@@ -53,9 +53,9 @@ public class Presupuestador {
 
 	public void validarItemsDetalle(List<ItemEgreso> itemsEgreso, List<ItemPresupuesto> itemsPresupuesto) {
 
-		if (!itemsPresupuesto.stream().anyMatch(itemPresupuesto -> itemsEgreso.contains(itemPresupuesto))) {
-			throw new EgresoInvalidoException("El presupuesto no corresponde al egreso indicado.");
-		}
+//		if (!itemsPresupuesto.stream().anyMatch(itemPresupuesto -> itemsEgreso.compareTo(itemPresupuesto))) {
+//			throw new EgresoInvalidoException("El presupuesto no corresponde al egreso indicado.");
+//		}
 	}
 
 }
