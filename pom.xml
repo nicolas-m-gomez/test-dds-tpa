@@ -74,7 +74,8 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
+				<artifactId>maven-assembly-plugin</artifactId>}
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -84,14 +85,14 @@
 					</execution>
 				</executions>
 				<configuration>
-					<finalName>batchValidacionEgresos</finalName>
+					<finalName>gesoc</finalName>
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
 					<appendAssemblyId>false</appendAssemblyId>
 					<archive>
 						<manifest>
-							<mainClass>servicio.batch.batchValidacionEgresos</mainClass>
+							<mainClass>main.Routes</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
