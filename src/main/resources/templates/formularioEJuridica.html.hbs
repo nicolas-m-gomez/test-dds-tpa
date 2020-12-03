@@ -1,0 +1,117 @@
+{{# partial "titulo" }}
+    <title>GeSoc - Crear Entidad Juridica</title>
+{{/partial}}
+
+{{# partial "barra" }}    
+  {{#each opciones}}
+	  <li class="nav-item"><a class="nav-link" href="{{key}}">{{this}}</a></li>
+  {{/each}}
+	<li class="nav-item"><a class="nav-link" href="/logout">Cerrar Sesion</a></li>
+{{/partial}}
+
+{{# partial "contenido" }}
+
+
+<title>Inscripcion de Entidad Juridica</title>
+
+	<h1>Inscripcion de una nueva Entidad Juridica</h1>
+
+    <section>
+		<form action="/organizaciones/nueva/entidad-juridica" method="POST">
+			<h2>
+	        Ingresar los datos Correspondientes
+	        </h2>
+	            <div>
+	            <span>Nombre:</span>
+	            <input type="text" name="nombre" required="required">
+	            </div>
+	            <div>
+	           	<span>Razon Social:</span>
+	            <input type="text" name="razon_social" required="required">
+	            </div
+	            <div>
+		            <label for="categoria">Categoria:</label>
+					<select id="categoria" name="categoria" required="required">
+						<ul>
+							{{#categorias}}
+		                	<li><option value="{{id}}">{{nombre}}</option></li>
+		           			{{/categorias}}
+	           			</ul>
+					</select>
+	            </div>
+	            <div>
+	            <span>Monto maximo de egreso:</span>
+	            <input type="number" name="montoMax" required="required">
+	            </div>
+	            <div>
+	            <div>
+	            <label for="tipoEmpresa">Tipo de Empresa:</label>
+				<select id="tipoEmpresa" name="tipoEmpresa" required="required">
+				  <option value="MICRO">Micro</option>
+				  <option value="PEQUENIA">Peque�a</option>
+				  <option value="MEDIANA_TRAMO_1">Mediana Tramo 1</option>
+				  <option value="MEDIANA_TRAMO_2">Mediana Tramo 2</option>
+				  <option value="OSC">O.S.C</option>
+				</select>
+	            </div>
+	            <div>
+	            <span>Cuit:</span>
+	            <input type="number" name="cuit" required="required">
+	            </div>
+	            <div>
+	            <span>Codigo IGJ:</span>
+	            <input type="number" name="codigoIGJ" required="required">
+	            </div>
+	            <div>
+	            <span>Cantidad maxima de Entidades Base:</span>
+	            <input type="number" name="entidadesMax" required="required">
+	            </div>
+	            
+	            <section>
+	           		<h3>Ubicacion:</h3>
+	           		<div>
+	            	<span>Pais:</span>
+	            		<input type="text" name="pais" required="required">
+	            	</div>
+	           		<div>
+	            	<span>Provincia:</span>
+	            		<input type="text" name="provincia" required="required">
+	            	</div>
+	            	<div>
+	            	<span>Cuidad:</span>
+	            		<input type="text" name="cuidad" required="required">
+	            	</div>
+	           		<h3>Direccion:</h3>
+	            	<span>Calle:</span>
+	            		<input type="text" name="calle" required="required">
+	            	</div>
+	            	<div>
+	            	<span>Altura:</span>
+	            		<input type="number" name="altura" required="required">
+	            	</div>
+	            	<div>
+	            	<span>Piso:</span>
+	            		<input type="text" name="piso" required="required">
+	            	</div>
+	            	<div>
+	            	<span>Codigo Postal:</span>
+	            		<input type="number" name="codigo_postal" required="required">
+	            	</div>
+	            	
+	            	
+	            </section>
+	            
+	            <section>
+	            <div>
+	            <input type="submit" value="Crear">
+				</div>	 
+				</section>       
+	        </form>
+	        
+    </section>
+                
+                
+	
+{{/partial}}
+
+{{> layout.html.hbs }}

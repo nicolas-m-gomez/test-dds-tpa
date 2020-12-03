@@ -1,0 +1,67 @@
+{{# partial "titulo" }}
+  <title>GeSoc - Editor Item Egreso</title>
+{{/partial}}
+{{# partial "subtitulo"}}
+  <h2>Editor Item Egreso</h2>
+{{/partial}}
+{{# partial "barra" }}    
+  {{#each opciones}}
+	  <li class="nav-item"><a class="nav-link" href="{{key}}">{{this}}</a></li>
+  {{/each}}
+	<li class="nav-item"><a class="nav-link" href="/logout">Cerrar Sesion</a></li>
+{{/partial}}
+{{# partial "contenido" }}
+  <div class="container bg-dark">    
+    <a type="button" class="btn btn-dark btn-lg" href="/organizaciones/{{#organizacion}}{{codigo}}{{/organizacion}}/egresos/{{#egreso}}{{id}}{{/egreso}}/items">Volver a Items</a>                
+  </div>  
+  <br>
+  <div>            
+    <div class="container">
+      <form accion="/organizacion/{{#organizacion}}{{codigo}}{{/organizacion}}/egreso/{{#egreso}}{{id}}{{/egreso}}/items/nuevo_item" method="post">
+        <div class="row">
+          <div class="col">
+            <label for="ldesc">Descripci&oacute;n</label>
+          </div>
+          <div class="col">            
+            <input type="text" id="idesc" name="idesc" class="form-control">    
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label for="lcantidad">Cantidad</label>
+          </div>
+          <div class="col">
+            <input type="number" id="icantidad" name="icantidad" class="form-control" min="1">    
+          </div>        
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label for="lmoneda">Moneda</label>
+          </div>
+          <div class="col">
+            <select  id="imoneda" name="imoneda" class="custom-select">
+              {{#monedas}}
+              <option value="{{id}}">{{id}} - {{descripcion}}</option>
+              {{/monedas}}
+            </select>
+            </div>
+        </div>
+        <br>    
+        <div class="row">
+          <div class="col">
+            <label for="lprecio_unitario">Precio Unitario</label>
+          </div>
+          <div class="col">
+            <input type="number" id="iprecio_unitario" name="iprecio_unitario" class="form-control" step="0.01">
+          </div>
+        </div>    
+        <br>
+        <button type="submit" class="btn btn-dark btn-lg">Aceptar</button>
+      </form>
+    </div>    
+  </div>
+ {{/partial}}
+
+{{> layout.html.hbs }}

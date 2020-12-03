@@ -1,0 +1,18 @@
+{{# partial "titulo" }}
+    <title>GeSoc - Home</title>
+{{/partial}}
+
+{{# partial "barra" }}    
+  {{#each opciones}}
+	  <li class="nav-item"><a class="nav-link" href="{{key}}">{{this}}</a></li>
+  {{/each}}
+	<li class="nav-item"><a class="nav-link" href="/logout">Cerrar Sesion</a></li>
+{{/partial}}
+
+{{# partial "contenido" }}
+<br>
+<br>
+<p>                Bienvenidos a GeSoc</p>
+{{/partial}}
+
+{{> layout.html.hbs }}

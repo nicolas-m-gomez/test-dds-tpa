@@ -1,0 +1,53 @@
+{{# partial "titulo" }}
+  <link rel="stylesheet" type="text/css" href="/egresos.css"> 
+  <script src="/clickable-row.js"></script>
+  <title>GeSoc - Presupuestos de Egresos</title>
+{{/partial}}
+{{# partial "subtitulo"}}
+  <h2>Presupuesto</h2>
+{{/partial}}
+{{# partial "barra" }}    
+  {{#each opciones}}
+	  <li class="nav-item"><a class="nav-link" href="{{key}}">{{this}}</a></li>
+  {{/each}}
+	<li class="nav-item"><a class="nav-link" href="/logout">Cerrar Sesion</a></li>
+{{/partial}}
+{{# partial "contenido" }}
+  <div class="container bg-dark">
+    <form action="/organizaciones/{{#organizacion}}{{codigo}}{{/organizacion}}/egresos/{{#egreso}}{{id}}{{/egreso}}/presupuestos/{{#presupuesto}}{{id}}{{/presupuesto}}" method="POST">
+      <div class="btn-group">
+        <a type="button" class="btn btn-dark btn-lg" href="/organizaciones/{{#organizacion}}{{codigo}}{{/organizacion}}/egresos/{{#egreso}}{{id}}{{/egreso}}/presupuestos" >Volver a Presupuestos</a>            
+        <button type="submit" class="btn btn-dark btn-lg">Borrar</button>        
+        <a type="button" class="btn btn-dark btn-lg" href="/organizaciones/{{#organizacion}}{{codigo}}{{/organizacion}}/egresos/{{#egreso}}{{id}}{{/egreso}}/presupuestos/{{#presupuesto}}{{id}}{{/presupuesto}}/items">Ver Items</a>
+      </div>
+    </form>
+  </div>  
+  <div class="container">            
+    {{#presupuesto}}
+    <div class="container">
+      <form>
+        <div class="row">
+          <div class="col">
+            <label for="ldesc">Proveedor</label>
+          </div>
+          <div class="col">
+            <input type="text" id="iproveedor" name="iproveedor" value="{{#proveedor}}{{denominacion}}{{/proveedor}}" {{disabled}} class="form-control">
+          </div>        
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label for="lcantidad">Cantidad</label>
+          </div>
+          <div class="col">
+            <input type="text" id="idocumentocomercial" name="idocumentocomercial" value="{{#documentoComercial}}{{tipoDocumento}} - {{codigo}}{{/documentoComercial}}" {{disabled}} class="form-control">    
+          </div>        
+        </div>
+        <br>
+      </form>
+    </div>
+    {{/presupuesto}}    
+  </div>
+ {{/partial}}
+
+{{> layout.html.hbs }}

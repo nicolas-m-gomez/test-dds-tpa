@@ -1,0 +1,79 @@
+
+{{# partial "titulo" }}
+    <title>GeSoc - Crear Entidad Base</title>
+{{/partial}}
+
+{{# partial "barra" }}    
+  {{#each opciones}}
+	 <li class="nav-item"><a class="nav-link" href="{{key}}">{{this}}</a></li>
+  {{/each}}
+	<li class="nav-item"><a class="nav-link" href="/logout">Cerrar Sesion</a></li>
+{{/partial}}
+
+{{# partial "contenido" }}
+
+
+<title>Inscripcion de Entidad Base</title>
+
+	<h1>Inscripcion de una nueva Entidad Base</h1>
+	
+    <section>
+		<form action="/organizaciones/nueva/entidad-base" method="POST">
+			<h2>
+	        Ingresar los datos Correspondientes
+	        </h2>
+	            <div>
+	            <span>Nombre:</span>
+	            <input type="text" name="nombre" required="required">
+	            </div>
+	            <div>
+	            <label for="categorias">Categoria:</label>
+				<select id="categoria" name="categoria" required="required">
+					<ul>
+						{{#categorias}}
+	                	<li><option value="{{id}}">{{nombre}}</option></li>
+	           			{{/categorias}}
+           			</ul>
+				</select>
+	            </div>
+	            <div>
+	            <span>Monto maximo de egreso:</span>
+	            <input type="number" name="montoMax" required="required">
+	            </div>
+	            <div>
+	            <span>Descripcion:</span>
+	            <input type="text" name="descripcion" required="required">
+	            </div>
+	            <div>
+	            <span>Permite agregarse a Entidades Juridicas:</span>
+	            <span>Yes</span>
+	            <input type="radio" name="permiteAgregarse" value="1"
+	            	onclick="document.getElementById('entidadJuridica').removeAttribute('disabled')">
+	            <span>No</span>
+	            <input type="radio" name="permiteAgregarse" value="0" checked="checked"
+	            	onclick="document.getElementById('entidadJuridica').setAttribute('disabled', true);">
+	            </div>
+	            <div>
+	            <label for="entidadesJuridicas">Entidad Juridica a la que Pertence:</label>
+				<select id="entidadJuridica" name="entidadJuridica" disabled>
+					<ul>
+						{{#entidadesJuridicas}}
+	                	<li><option value="{{codigo}}">{{nombreFicticio}}</option></li>
+	           			{{/entidadesJuridicas}}
+           			</ul>
+				</select>
+	            </div>
+	            
+	            <div>
+	            <input type="submit" value="Crear">
+				</div>	        
+	        </form>
+	        
+    </section>
+                
+                
+	
+{{/partial}}
+
+{{> layout.html.hbs }}
+

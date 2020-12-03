@@ -1,0 +1,38 @@
+{{# partial "titulo" }}
+    <title>GeSoc - Categor&iacute;as</title>
+{{/partial}}
+{{# partial "barra" }}    
+  {{#each opciones}}
+	  <li class="nav-item"><a class="nav-link" href="{{key}}">{{this}}</a></li>
+  {{/each}}
+	<li class="nav-item"><a class="nav-link" href="/logout">Cerrar Sesion</a></li>
+{{/partial}}
+{{# partial "contenido" }}
+
+                
+              <h3>Nuestras entidades</h3>
+        
+        <form action="/categoria-entidades" method="GET">	
+		<p>
+		<label for="categorias">Buscar por Categoria:</label>
+		<select name="categorias" id="categorias">
+		{{#categorias}}
+			<option value = "{{id}}">{{nombre}}</option>
+		{{/categorias}}
+		    <option value = "0" selected> - </option>
+		</select>
+		<input type="submit" value="Buscar">
+		</p>
+	</form>
+
+        <ol>
+        {{#entidades}}
+            <li><a href="/organizaciones/{{codigo}}/egresos">{{nombreFicticio}}</a></li>
+        {{/entidades}}
+        </ol>
+
+    </section>   
+	
+{{/partial}}
+
+{{> layout.html.hbs }}

@@ -1,0 +1,16 @@
+{{# partial "titulo" }}
+  <title>Error al cargar la p&aacute;gina</title>
+{{/partial}}
+{{# partial "barra" }}    
+  {{#each opciones}}
+	  <li class="nav-item"><a class="nav-link" href="{{key}}">{{this}}</a></li>
+  {{/each}}
+	<li class="nav-item"><a class="nav-link" href="/logout">Cerrar Sesion</a></li>
+{{/partial}}
+{{# partial "contenido" }}
+  <div class="alert alert-warning">
+      <strong>Warning!</strong> {{mensaje_error}}
+  </div>
+{{/partial}}
+
+{{> layout.html.hbs }}

@@ -1,0 +1,10 @@
+GestionProyectosSociales
+ProyectosSociales
+GestionSociales
+DocumentoComercial
+Organizacion
+EntidadJuridica
+Entidades
+EntidadBase
+Egresos1
+Gesoc1

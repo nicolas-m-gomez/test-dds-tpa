@@ -1,0 +1,82 @@
+{{# partial "titulo" }}
+  <title>GeSoc - Nuevo Egreso</title>
+{{/partial}}
+{{# partial "subtitulo"}}
+  <h2>Editor Egreso - {{#organizacion}}{{nombreFicticio}}{{/organizacion}}</h2>
+{{/partial}}
+{{# partial "barra" }}    
+  {{#each opciones}}
+	  <li class="nav-item"><a class="nav-link" href="{{key}}">{{this}}</a></li>
+  {{/each}}
+	<li class="nav-item"><a class="nav-link" href="/logout">Cerrar Sesion</a></li>
+{{/partial}}
+{{# partial "contenido" }}
+  <div class="container bg-dark">
+    <a type="button" class="btn btn-dark btn-lg" href="/organizaciones/{{#organizacion}}{{codigo}}{{/organizacion}}/egresos" >Ver Egresos</a>                    
+  </div>
+  <br> 
+  <div class="container">
+    <form accion="/organizacion/{{#organizacion}}{{codigo}}{{/organizacion}}/egreso" method="post">
+      <div class="row">
+        <div class="col">
+          <label for="lestado">Estado</label>
+        </div>
+        <div class="col">
+          <input type="text" id="iestado" name="iestado" value="PENDIENTE" class="form-control" disabled>
+        </div>        
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label for="lfecha">Fecha</label>
+        </div>
+        <div class="col">
+          <input type="date" id="ifecha" name="ifecha" value={{fecha_del_dia}} class="form-control">    
+        </div>        
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <label for="lmediopago">Medio de Pago</label>
+        </div>
+        <div class="col">
+          <select  id="imediosPagos" name="imediosPagos" class="custom-select">
+            {{#mediosPago}}
+            <option value={{id}}>{{tipoMedio}} - {{codigo}}</option>
+            {{/mediosPago}}
+          </select>
+          </div>
+      </div>
+      <br>    
+      <div class="row">
+        <div class="col">
+          <label for="lproveedor">Proveedor</label>
+        </div>
+        <div class="col">
+          <select  id="iproveedores" name="iproveedores" class="custom-select">
+            {{#proveedores}}
+            <option value={{id}}>{{denominacion}}</option>
+            {{/proveedores}}
+          </select>
+        </div>
+      </div>    
+      <br>
+      <div class="row">
+        <div class="col">
+          <label for="lname">Documento Comercial</label>
+        </div>
+        <div class="col">
+          <select id="idocucomercial" name="idocucomercial" class="custom-select">
+            {{#documentosComerciales}}
+            <option value="{{codigo}}">{{tipoDocumento}} - {{codigo}}</option>
+            {{/documentosComerciales}}
+          </select>            
+        </div>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-dark btn-lg">Aceptar</button>
+    </form>
+  </div>
+ {{/partial}}
+
+{{> layout.html.hbs }}

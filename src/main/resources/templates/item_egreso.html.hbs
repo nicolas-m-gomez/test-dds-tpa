@@ -1,0 +1,71 @@
+{{# partial "titulo" }}
+  <title>GeSoc - Editor Item Egreso</title>
+{{/partial}}
+{{# partial "subtitulo"}}
+  <h2>Editor Item Egreso</h2>
+{{/partial}}
+{{# partial "barra" }}    
+  {{#each opciones}}
+	  <li class="nav-item"><a class="nav-link" href="{{key}}">{{this}}</a></li>
+  {{/each}}
+	<li class="nav-item"><a class="nav-link" href="/logout">Cerrar Sesion</a></li>
+{{/partial}}
+{{# partial "contenido" }}
+  <div class="container bg-dark">
+    <form action="/organizaciones/{{#organizacion}}{{codigo}}{{/organizacion}}/egresos/{{#egreso}}{{id}}{{/egreso}}/items/{{#item_egreso}}{{id}}{{/item_egreso}}" method="POST">
+      <div class="btn-group">
+        <a type="button" class="btn btn-dark btn-lg" href="/organizaciones/{{#organizacion}}{{codigo}}{{/organizacion}}/egresos/{{#egreso}}{{id}}{{/egreso}}/items" >Volver a Items</a>            
+        <button type="submit" class="btn btn-dark btn-lg">Borrar</button>        
+      </div>
+    </form>
+  </div>
+  <br>
+  <div class="container">            
+    {{#item_egreso}}
+    <div class="container">
+      <form>
+        <div class="row">
+          <div class="col">
+            <label for="ldesc">Descripci&oacute;n</label>
+          </div>
+          <div class="col">
+            <input type="text" id="idesc" name="idesc" value={{descripcion}} {{disabled}} class="form-control">
+          </div>        
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label for="lcantidad">Cantidad</label>
+          </div>
+          <div class="col">
+            <input type="number" id="icantidad" name="icantidad" value={{cantidad}} {{disabled}} class="form-control">    
+          </div>        
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <label for="lmoneda">Moneda</label>
+          </div>
+          <div class="col">
+            <select  id="imoneda" name="imoneda" {{disabled}} class="custom-select">
+              <option>{{idMoneda}}</option>
+            </select>
+            </div>
+        </div>
+        <br>    
+        <div class="row">
+          <div class="col">
+            <label for="lprecio_unitario">Precio Unitario</label>
+          </div>
+          <div class="col">
+            <input type="number" id="iprecio_unitario" name="iprecio_unitario" {{disabled}} value="{{precioUnitario}}" class="form-control">
+          </div>
+        </div>    
+        <br>
+      </form>
+    </div>
+    {{/item_egreso}}    
+  </div>
+ {{/partial}}
+
+{{> layout.html.hbs }}

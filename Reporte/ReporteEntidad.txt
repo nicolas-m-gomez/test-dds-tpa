@@ -1,0 +1,5 @@
+Reporte de Entidad de gastos por Etiqueta
+-----------
+Nombre Entidad Base:NombreFicticio1
+
+{Indumentaria=230000.0, Hogar=269000.0}
