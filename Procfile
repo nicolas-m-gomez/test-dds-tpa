@@ -1,1 +1,1 @@
-web: java -jar target/gesoc-1.0.jar
+web: java -jar target/Gesoc-jar-with-dependencies.jar
