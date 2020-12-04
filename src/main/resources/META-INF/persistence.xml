@@ -26,6 +26,7 @@
 			<class>dominio.ListadoRevisores</class>
 
         <properties>
+        <!--  Localhost DB
             <property name="hibernate.archive.autodetection" value="class"/>			   
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/gesoc?serverTimezone=UTC" /> 
@@ -34,14 +35,14 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.jdbc.time_zone" value="UTC"/>
            	
-           	<!--  Localhost DB			
+           -->          				
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
             <property name="hibernate.connection.url" value="jdbc:mysql://eu-cdbr-west-03.cleardb.net/heroku_6a2350042c3e3fa?serverTimezone=UTC" /> 
             <property name="hibernate.connection.username" value="b8905fa8d80e9f" /> 
             <property name="hibernate.connection.password" value="c3f16988" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
             <property name="hibernate.jdbc.time_zone" value="UTC"/>
-			-->          
+			
             <!-- <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
             <property name="hibernate.connection.url" value="jdbc:hsqldb:mem:app-db"/>
             <property name="hibernate.connection.username" value="sa"/>
